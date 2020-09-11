@@ -45,7 +45,7 @@ describe('FamilySearchStrategy familysearch.org-specific extensions', function (
         params = url.parse(redirectUrl, true).query;
         done();
       })
-      .authenticate({referrer: 'example.com', display: 'lite', userName: USERNAME, icid: 'abc.123-my_cid', flow: 'foo', flow: 'login'});
+      .authenticate({referrer: 'example.com', display: 'lite', userName: USERNAME, icid: 'abc.123-my_cid', flow: 'foo', prompt: 'login'});
   });
 
   it('should pass through referrer option', function () {
@@ -71,7 +71,7 @@ describe('FamilySearchStrategy familysearch.org-specific extensions', function (
     expect(params).to.not.have.property('username');
   });
 
-  it('should pass through icid option', function () {
+  it('should pass through prompt option', function () {
     expect(params).to.have.property('prompt', 'login');
   });
 
